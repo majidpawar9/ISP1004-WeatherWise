@@ -4,8 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:WeatherWise"
+    xmlns:mylogin="clr-namespace:WeatherWise.Views"
     Shell.FlyoutBehavior="Disabled">
 
+    <FlyoutItem Route="Login">
+        <ShellContent  ContentTemplate="{DataTemplate mylogin:LoginPage}"></ShellContent>
+    </FlyoutItem>
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
