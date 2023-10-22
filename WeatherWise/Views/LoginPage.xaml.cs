@@ -1,12 +1,16 @@
+using System.Windows.Input;
 using WeatherWise.ViewModels;
 
 namespace WeatherWise.Views;
 
 public partial class LoginPage : ContentPage
 {
-	public LoginPage()
+
+    public LoginPage()
 	{
 		InitializeComponent();
-		BindingContext = new LoginViewModel();
+		BindingContext = new LoginViewModel(Navigation);
 	}
+
+   
 }

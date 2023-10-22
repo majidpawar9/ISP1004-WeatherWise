@@ -13,6 +13,7 @@ namespace WeatherWise.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private LoginRequestModel myloginRequestModel = new LoginRequestModel();
+        public INavigation Navigation { get; set; }
         public LoginRequestModel MyLoginRequestModel
         {
             get { return myloginRequestModel; }
@@ -22,15 +23,23 @@ namespace WeatherWise.ViewModels
         }
 
         public ICommand LoginCommand { get; set; }
+        public ICommand SignupUser { get; set; }
 
-        public LoginViewModel()
+        public LoginViewModel(INavigation navigation)
         {
             LoginCommand = new Command(PerformLoginOperation);
+            this.Navigation = navigation;
+            SignupUser = new Command(NavigateToSignUp);
         }
 
         private async void PerformLoginOperation(object obj)
         {
             var data = MyLoginRequestModel;
+        }
+
+        private async void NavigateToSignUp()
+        {
+            await Navigation.PushAsync(new Views.SignupPage());
         }
 
         protected void OnPropertChanged(string propertyName)

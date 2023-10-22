@@ -1,13 +1,25 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherWise.Views.LoginPage"
              Title="Weather Wise"
              BackgroundColor="Black">
-    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="20,0,20,0">
         <Entry Placeholder="Username" Text="{Binding MyLoginRequestModel.UserName}"></Entry>
         <Entry Placeholder="Password" Text="{Binding MyLoginRequestModel.Password}"></Entry>
         <Button Text="Login" BackgroundColor="Red" TextColor="White" Command="{Binding LoginCommand}"></Button>
+        <Label Text="Sign up"
+               TextColor="white"            
+               FontSize="18"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+                Margin="0, 20, 0, 0">
+           <Label.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding SignupUser}" />
+           </Label.GestureRecognizers>
+       </Label>
+
+        
     </VerticalStackLayout>
 </ContentPage>
