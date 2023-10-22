@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maui.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace WeatherWise.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private SignupRequestModel mySignupRequestModel = new SignupRequestModel();
+        public INavigation Navigation { get; set; }
+
+        public ICommand LogInUser { get; set; }
         public SignupRequestModel MySignupRequestModel
         {
             get { return mySignupRequestModel; }
@@ -28,14 +32,21 @@ namespace WeatherWise.ViewModels
 
         public ICommand SignupCommand { get; set; }
 
-        public SignupViewModel()
+        public SignupViewModel(INavigation navigation)
         {
             SignupCommand = new Command(PerformSignupOperation);
+            this.Navigation = navigation;
+            LogInUser = new Command(NavigateToLogIn);
         }
 
         private async void PerformSignupOperation(object obj)
         {
-            var data = mySignupRequestModel;
+            var data = MySignupRequestModel;
+        }
+
+        private async void NavigateToLogIn()
+        {
+            await Navigation.PushAsync(new Views.LoginPage());
         }
 
         protected void OnPropertChanged(string propertyName)
