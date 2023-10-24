@@ -35,6 +35,7 @@ namespace WeatherWise.ViewModels
         private async void PerformLoginOperation(object obj)
         {
             var data = MyLoginRequestModel;
+            await Navigation.PushAsync(new Views.WeatherWisePage());
         }
 
         private async void NavigateToSignUp()

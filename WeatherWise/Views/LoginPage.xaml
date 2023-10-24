@@ -6,8 +6,8 @@
              Title="Weather Wise Login"
              BackgroundColor="White">
     <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="20,0,20,0">
-        <Entry Placeholder="Username" Text="{Binding MyLoginRequestModel.UserName}" TextColor="White"></Entry>
-        <Entry Placeholder="Password" Text="{Binding MyLoginRequestModel.Password}" TextColor="White" IsPassword="True"></Entry>
+        <Entry Placeholder="Username" Text="{Binding MyLoginRequestModel.UserName}" TextColor="Black"></Entry>
+        <Entry Placeholder="Password" Text="{Binding MyLoginRequestModel.Password}" TextColor="Black" IsPassword="True"></Entry>
         <Button Text="Login" BackgroundColor="OrangeRed" TextColor="Black" Command="{Binding LoginCommand}"></Button>
         <Label Text="Sign up"
                TextColor="Black"            
