@@ -1,4 +1,4 @@
-﻿using AndroidX.Lifecycle;
+﻿
 using Firebase.Auth;
 using Firebase.Auth.Providers;
 using Firebase.Auth.Repository;
