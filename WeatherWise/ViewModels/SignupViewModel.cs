@@ -44,15 +44,6 @@ namespace WeatherWise.ViewModels
             LogInUser = new Command(NavigateToLogIn);
         }
 
-        //private async void PerformSignupOperation(object obj )
-        //{
-        //    var data = MySignupRequestModel;
-        //    Debug.WriteLine(data.Password);
-        //    Debug.WriteLine(data.UserName);
-           
-        //}
-
-
         private async void SignUpCommand()
         {       
             try
@@ -63,27 +54,27 @@ namespace WeatherWise.ViewModels
                     ApiKey = "AIzaSyCIM8KnE9p3feUGAJjk51StTBA8CAwU8Gk",
                     AuthDomain = "loginwith-99aa7.firebaseapp.com",
                     Providers = new FirebaseAuthProvider[]
-                    {
+                {
         // Add and configure individual providers
         
-        new EmailProvider()
+                 new EmailProvider()
                         // ...
-                    },
+                 },
                     // WPF:
                     UserRepository = new FileUserRepository("FirebaseSample") // persist data into %AppData%\FirebaseSample
 
-                };
+               };
 
                 // ...and create your FirebaseAuthClient
                 var _authClient = new FirebaseAuthClient(config);
 
 
-                await _authClient.CreateUserWithEmailAndPasswordAsync("chinedu4@email.com", "1234567");
+                await _authClient.CreateUserWithEmailAndPasswordAsync("youmik@email.com", "1234567");
 
                 await Application.Current.MainPage.DisplayAlert("Success", "Successfully signed up!", "Ok");
 
 
-                await Navigation.PushAsync(new Views.LoginPage());
+                await Navigation.PushAsync(new Views.WeatherWisePage());
             }
             catch (Exception e)
             {
