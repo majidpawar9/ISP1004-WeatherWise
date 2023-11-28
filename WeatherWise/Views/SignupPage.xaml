@@ -5,9 +5,10 @@
              Title="WeatherWise Signup"
              BackgroundColor="White">
      <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="20,0,20,0">
-        <Entry Placeholder="Username" Text="{Binding MyLoginRequestModel.UserName}" TextColor="Black"></Entry>
-        <Entry Placeholder="Password" Text="{Binding MyLoginRequestModel.Password}" TextColor="Black" IsPassword="True"></Entry>
-        <Button Text="Sign up" BackgroundColor="OrangeRed" TextColor="Black" Command="{Binding SignupCommand}"></Button>
+        <Entry Placeholder="Username" Text="{Binding MySignupRequestModel.UserName}" TextColor="Black"></Entry>
+        <Entry Placeholder="Password" Text="{Binding MySignupRequestModel.Password}" TextColor="Black" IsPassword="True"></Entry>
+         <ActivityIndicator  IsRunning="{Binding IsBusy}" />
+        <Button Text="Sign up" BackgroundColor="OrangeRed" TextColor="Black"  IsVisible="{Binding ShowButton}"  Command="{Binding SignupCommand}"></Button>
         <Label Text="Already have an account? Login"
                TextColor="Black"
                FontSize="18"
