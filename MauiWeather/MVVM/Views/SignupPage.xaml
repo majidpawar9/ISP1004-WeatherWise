@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherWise.MVVM.Views.SignupPage"
+             Title="WeatherWise Signup"
+              NavigationPage.HasNavigationBar="false" 
+             BackgroundColor="White">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="20,0,20,0">
+        <Label Text="WeatherWise"
+               TextColor="#3F4040"            
+                FontSize="25"
+                HorizontalOptions="Center"              
+                Margin="0, 0, 0, 70">            
+        </Label>
+        <Label Text="Sign Up"
+               TextColor="#1F1F1F"            
+               FontSize="35"
+                HorizontalOptions="Start"              
+                Margin="0, 0, 0, 10">            
+        </Label>
+        <Label Text="Enter email and password below"
+               TextColor="#69696A"            
+               FontSize="16"
+                HorizontalOptions="Start"              
+                Margin="0, 0, 0, 40">            
+        </Label>
+        <Label Text="Email"
+               TextColor="#115CE0"            
+               FontSize="16"
+                HorizontalOptions="Start"              
+                Margin="0, 0, 0, 20">            
+        </Label>
+        <Entry Placeholder="Username" Text="{Binding MySignupRequestModel.UserName}" TextColor="Black"></Entry>
+        <Label Text="Password"
+               TextColor="#115CE0"            
+               FontSize="16"
+                HorizontalOptions="Start"              
+                Margin="0, 0, 0, 20">            
+        </Label>
+        <Entry Placeholder="Password" Text="{Binding MySignupRequestModel.Password}" TextColor="Black" IsPassword="True"></Entry>
+        <ActivityIndicator BackgroundColor="#115CE0"  IsRunning="{Binding IsBusy}" />
+        <Button Text="Sign up" BackgroundColor="#115CE0" TextColor="white"  IsVisible="{Binding ShowButton}"  Command="{Binding SignupCommand}"></Button>
+        <Label Text="Already have an account? Login"
+               TextColor="#115CE0"
+               FontSize="18"
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+                Margin="0, 20, 0, 0">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding LogInUser}" />
+            </Label.GestureRecognizers>
+        </Label>
+    </VerticalStackLayout>
+</ContentPage>
